@@ -12,7 +12,8 @@ else
 fi
 if [ $? -eq 0]
 then
-   echo "$R user has the root access $W"
+   echo "$G user has the root access $W"
 else
-   echo ""
+   echo "$R MYSQL INSALLTION FAILD $W"
+
 apt install mysql -y 
