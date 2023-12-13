@@ -16,4 +16,6 @@ then
 else
    echo "$R MYSQL INSALLTION FAILD $W"
 
+fi
+
 apt install mysql-server
