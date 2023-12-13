@@ -1,7 +1,7 @@
 #!/bin/bash
 R="\e[31m"
 W="\e[0m"
-G="\e[0m"
+G="\e[32m"
 USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
