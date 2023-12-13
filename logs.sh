@@ -27,6 +27,8 @@ then
 else
     echo "$G user has the root access $W"
 
+fi
+
 
 apt install git -y &>> $LOGFILE
 VALIDATE $? "installing git"
