@@ -10,7 +10,7 @@ then
 else
    echo "$G user has the root access $W"
 fi
-if [ $? -eq 0]
+if [ $? -eq 0 ]
 then
    echo "$G user has the root access $W"
 else
