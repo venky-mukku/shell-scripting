@@ -22,10 +22,10 @@ VALIDATE(){
 
 if [ $ID -ne 0 ]
 then
-    echo -e  "$R  user not have the root accesss, pls provide root access to him $W"
+    echo -e  "$R $R ERROR ::  user not have the root accesss, pls provide root access to him $W"
     exit 1
 else
-    echo "$R ERROR :: $G user has the root access $W"
+    echo "$G user has the root access $W"
 
 fi
 
