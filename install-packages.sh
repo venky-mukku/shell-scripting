@@ -12,7 +12,7 @@ else
 fi
 if [ $? -eq 0 ]
 then
-   echo "$G user has the root access $W"
+   echo "$G MYSQL INSALLTION SUCCESS $W"
 else
    echo "$R MYSQL INSALLTION FAILD $W"
 
