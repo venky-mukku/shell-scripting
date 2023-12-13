@@ -18,6 +18,7 @@ then
    echo "$G ***************MYSQL INSALLTION SUCCESS*********** $W"
 else
    echo "$R **********MYSQL INSALLTION FAILD************ $W"
+   exit 1
 
 fi
 
