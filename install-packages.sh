@@ -1,6 +1,7 @@
 #!/bin/bash
 
-if [ $(id -u) -ne 0]
+USERID= $(id -u)
+if [ $USERID -ne 0]
 then
    echo "user didn't have the root access, plz provide the root access to them"
    exit 1 
