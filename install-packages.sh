@@ -15,9 +15,9 @@ apt install mysql-server
 
 if [ $? -eq 0 ]
 then
-   echo "$G MYSQL INSALLTION SUCCESS $W"
+   echo "$G ***************MYSQL INSALLTION SUCCESS*********** $W"
 else
-   echo "$R MYSQL INSALLTION FAILD $W"
+   echo "$R **********MYSQL INSALLTION FAILD************ $W"
 
 fi
 
