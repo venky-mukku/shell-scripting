@@ -5,19 +5,19 @@ G="\e[32m"
 USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
-   echo " $R user didn't have the root access, plz provide the root access to them $W"
+   echo -e " $R user didn't have the root access, plz provide the root access to them $W"
    exit 1 
 else
-   echo "$G user has the root access $W"
+   echo -e "$G user has the root access $W"
 fi
 
 apt install mysql-server
 
 if [ $? -eq 0 ]
 then
-   echo "$G ***************MYSQL INSALLTION SUCCESS*********** $W"
+   echo -e "$G ***************MYSQL INSALLTION SUCCESS*********** $W"
 else
-   echo "$R **********MYSQL INSALLTION FAILD************ $W"
+   echo -e "$R **********MYSQL INSALLTION FAILD************ $W"
    exit 1
 
 fi
