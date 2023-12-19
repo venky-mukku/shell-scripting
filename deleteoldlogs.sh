@@ -8,8 +8,10 @@ Y="\e[33m"
 N="\e[0m"
 
 if [ ! -d $SOURCE_DIR ]
-then 
-  echo -e "$R source dir :$SOURCE_DIR does not exists. $N"
+then
+  echo "#####################################################"
+  echo -e "$R source dir :$Y $SOURCE_DIR does not exists. $N"
+  exit 1
 fi
 
 FILES_TO_DELETE=$(find $SOURCE_DIR -type f -mtime +14 -name "*.log")
