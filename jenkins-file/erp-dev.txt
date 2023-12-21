@@ -1,0 +1,37 @@
+============================================================================================================================================================
+                                                                    erp-dev
+============================================================================================================================================================
+
+
+
+
+pipeline {
+    agent { label 'master' }
+    
+    environment {
+        file1 = "--filter 'protect index.php'"
+        file2 = "--filter 'protect application/config/config.php'"
+        file3 = "--filter 'protect application/config/database.php'"
+        file4 = "--filter 'protect uploads'"
+        file5 = "--filter 'protect logs'"
+                }
+                
+    stages {
+        stage('build') {
+            steps {
+                sh 'echo Creating directory with job name  "${JOB_NAME}" build number  "${BUILD_NUMBER}"'
+				sh 'mkdir -p /var/lib/jenkins/workspace/"${JOB_NAME}"-Build/"${BUILD_NUMBER}"'
+				sh 'echo "${BUILD_NUMBER}" > /var/lib/jenkins/workspace/"${JOB_NAME}"-Build/"${BUILD_NUMBER}"/build-number.txt'
+				sh 'echo "${JOB_NAME}" > /var/lib/jenkins/workspace/"${JOB_NAME}"-Build/"${BUILD_NUMBER}"/job-name.txt'
+				git branch: 'Deployment_Dev', credentialsId: '217c57a7-3c58-4de2-9f42-dd14a1b85679', url: 'https://github.com/talentedge/ERP_PUNE.git'
+				sh 'rsync -r --exclude-from=".gitignore" /var/lib/jenkins/workspace/"${JOB_NAME}"/ /var/lib/jenkins/workspace/"${JOB_NAME}"-Build/"${BUILD_NUMBER}"/ --delete'
+				sh 'cp -r /var/lib/jenkins/workspace/"${JOB_NAME}"/.gitignore /var/lib/jenkins/workspace/"${JOB_NAME}"-Build/"${BUILD_NUMBER}"/'
+			   // sh 'rsync -r /var/lib/jenkins/workspace/"${JOB_NAME}"-Build/"${BUILD_NUMBER}"/ ubuntu@10.0.14.245:/home/ubuntu/erp-dev/ --delete'
+			    sh 'rsync -r /var/lib/jenkins/workspace/"${JOB_NAME}"-Build/"${BUILD_NUMBER}"/ ubuntu@10.102.11.205:/home/ubuntu/erp-dev/ --delete'
+				sh 'rsync -r /var/lib/jenkins/workspace/"${JOB_NAME}"-Build/"${BUILD_NUMBER}"/.gitignore ubuntu@10.102.11.205:/home/ubuntu/erp-dev/'
+				sh 'ssh ubuntu@10.102.11.205 "sudo rsync -r --exclude-from=.gitignore /home/ubuntu/erp-dev/ /var/www/html/erp-dev/ --delete ${file1} ${file2} ${file3} ${file4} ${file5}"'
+                sh 'ssh ubuntu@10.102.11.205 "sudo cp -r /home/ubuntu/erp-dev/.gitignore /var/www/html/erp-dev"'
+            }
+        }
+    }
+}
