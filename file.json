@@ -1,0 +1,20 @@
+{
+    "name" : "venky",
+    "fathers_name" : "Thirupathi reddy",
+    "mothers_name" : "thirupathamma",
+    "address" : [
+        {
+        "village" : "ramayapalli",
+        "mandal" : "H.M padu",
+        "district" : "prakasham",
+        "pincode" : "523228"
+        },
+    "Temp_addr" : 
+        {
+        "town" : "pune",
+        "villa_no" : "107",
+        "status" : "maharastra"
+
+        }
+    ]
+}

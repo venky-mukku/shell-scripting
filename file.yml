@@ -1,0 +1,13 @@
+- name = "venkateswarlu.mukku"
+  fathers_name = "thirupathireddy.mukku"
+  mothers_name = "thirupathamma.mukku"
+  address :
+  -type = "perm"
+    village = "'ramayapalli"
+    mandal = "hm padu"
+    district = "prakasham"
+    pin = "523228"
+  -type = "temp"
+    village = "hvbjb"
+    mandal = "hvhgvknvb,n"
+    pincde = "523227"
